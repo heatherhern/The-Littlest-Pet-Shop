@@ -1,0 +1,23 @@
+{
+  "name": "the-littlest-pet-shop",
+  "version": "1.0.0",
+  "description": "Pet adoption website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heatherhern/The-Littlest-Pet-Shop.git"
+  },
+  "author": "Allister, Heather, Todd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heatherhern/The-Littlest-Pet-Shop/issues"
+  },
+  "homepage": "https://github.com/heatherhern/The-Littlest-Pet-Shop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
