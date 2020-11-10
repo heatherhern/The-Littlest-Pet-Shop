@@ -1,20 +1,21 @@
-module.exports = function(sequelize, DataTypes){
-    let Pet = sequelize.define("Pet", {
+module.exports = function (sequelize, DataTypes) {
+    let SavedPet = sequelize.define("SavedPet", {
         name: DataTypes.STRING,
         url: DataTypes.STRING,
         species: DataTypes.STRING,
         age: DataTypes.STRING,
         gender: DataTypes.STRING,
         photo_url: DataTypes.STRING,
+        organization_id: DataTypes.STRING,
     });
 
-    Pet.associate = function(models) {
-        Pet.belongsTo(models.Clinic, {
+    SavedPet.associate = function(models) {
+        SavedPet.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
 
-    return Pet;
-};
+    return SavedPet;
+}

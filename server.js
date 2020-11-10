@@ -1,10 +1,8 @@
-let express = require("express");
-// let mainRoutes = require('./Routes.js')
-// app.use(mainRoutes)
-
-let PORT = process.env.PORT || 3000;
-
-let app = express();
+const express = require("express");
+const dotenv = require("dotenv").config();
+const PORT = process.env.PORT || 3000;
+const app = express();
+const db = require("./models");
 
 app.use(express.static("public"));
 
@@ -20,6 +18,10 @@ let routes = require("./controllers/petController.js");
 
 app.use(routes);
 
-app.listen(PORT, function() {
-    console.log("App now listening at localhost:" + PORT);
+db.sequelize.sync({ force: true }).then(function () {
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+    });
 });
+
+
