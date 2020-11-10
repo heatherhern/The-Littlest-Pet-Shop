@@ -16,7 +16,7 @@ let exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-let routes = require("./controllers/petsController.js");
+let routes = require("./controllers/petController.js");
 
 app.use(routes);
 
