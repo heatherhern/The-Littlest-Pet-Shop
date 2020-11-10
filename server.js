@@ -1,10 +1,8 @@
-let express = require("express");
-
-let PORT = process.env.PORT || 3000;
-
-let app = express();
-
-var db = require("./models");
+const express = require("express");
+const dotenv = require("dotenv").config();
+const PORT = process.env.PORT || 3000;
+const app = express();
+const db = require("./models");
 
 app.use(express.static("public"));
 
