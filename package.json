@@ -4,10 +4,12 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "@petfinder/petfinder-js": "^1.0.6",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
+    "request": "^2.88.2",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0"
   },
