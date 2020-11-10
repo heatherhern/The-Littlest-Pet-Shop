@@ -1,8 +1,15 @@
 {
-  "name": "the-littlest-pet-shop",
+  "name": "The-Littlest-Pet-Shop",
   "version": "1.0.0",
-  "description": "Pet adoption website",
-  "main": "server.js",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql": "^2.18.1",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -11,19 +18,11 @@
     "type": "git",
     "url": "git+https://github.com/heatherhern/The-Littlest-Pet-Shop.git"
   },
-  "author": "Allister, Heather, Todd",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/heatherhern/The-Littlest-Pet-Shop/issues"
   },
-  "homepage": "https://github.com/heatherhern/The-Littlest-Pet-Shop#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.2.5",
-    "passport": "^0.4.1",
-    "sequelize": "^6.3.5",
-    "sequelize-cli": "^6.2.0"
-  }
+  "homepage": "https://github.com/heatherhern/The-Littlest-Pet-Shop#readme"
 }
