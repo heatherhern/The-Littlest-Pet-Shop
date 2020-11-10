@@ -1,5 +1,6 @@
 module.exports = function(sequelize, DataTypes){
     let Pet = sequelize.define("Pet", {
+        organization_id: DataTypes.STRING,
         name: DataTypes.STRING,
         url: DataTypes.STRING,
         species: DataTypes.STRING,
