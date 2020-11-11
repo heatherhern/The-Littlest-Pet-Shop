@@ -12,6 +12,10 @@ nav{
     font-family: 'Ubuntu', sans-serif;
 }
 
+.card{
+    margin: 10px;
+}
+
 .navbar-brand{
     font-size: 30px;
 }
