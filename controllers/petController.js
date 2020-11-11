@@ -34,7 +34,6 @@ router.get("/search-pet", function (req, res) {
                 species: element.species,
                 age: element.age,
                 gender: element.gender,
-                photo_url: element.photos,
                 organization_id: element.organization_id,
                 email: element.contact.email,
                 phone: element.contact.phone,
@@ -45,6 +44,12 @@ router.get("/search-pet", function (req, res) {
                 zipcode: parseInt(element.contact.address.postcode),
                 country: element.contact.address.country
             };
+
+            if(element.photos[0]){
+                petObj.photo_url = element.photos[0].medium
+            } else {
+                petObj.photo_url = "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png";
+            }
 
             petArr.push(petObj);
         });
