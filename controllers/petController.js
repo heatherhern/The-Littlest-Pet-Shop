@@ -8,13 +8,22 @@ let router = express.Router();
 
 router.get("/", function(req, res){
     res.render("index");
-})
+});
+
+router.get("/login", function(req, res){
+    res.render("login");
+});
+
+router.get("/register", function(req, res){
+    res.render("register");
+});
+
+router.get("/forgot-password", function(req, res){
+    res.render("forgot-password");
+});
 
 
-
-
-
-router.get("/pets", function (req, res) {
+router.get("/search-pet", function (req, res) {
     client.animal.search().then(function (response) {
         let petArr = [];
 
@@ -40,12 +49,14 @@ router.get("/pets", function (req, res) {
             petArr.push(petObj);
         });
         console.log(petArr);
-        res.render("petDisplay", {pets: petArr});
+        res.render("search-pet", {pet: petArr});
     });
     
 });
 
-
+router.get("/saved-pets", function(req, res){
+    res.render("saved-pets");
+});
 
 
 
