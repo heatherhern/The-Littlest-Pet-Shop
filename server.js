@@ -14,9 +14,11 @@ let exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-let routes = require("./controllers/petController.js");
+let getRoutes = require("./controllers/petController.js");
+let userRoutes = require("./controllers/userController.js");
 
-app.use(routes);
+app.use(getRoutes);
+app.use(userRoutes);
 
 db.sequelize.sync({ force: true }).then(function () {
     app.listen(PORT, function () {

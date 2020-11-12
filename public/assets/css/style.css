@@ -5,6 +5,8 @@ font-family: 'Ubuntu', sans-serif;
 
 */
 
+
+/* Main Page Styling */
 .background{
     background: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80") no-repeat center fixed;
     background-size: cover;
@@ -14,15 +16,6 @@ nav{
     font-family: 'Ubuntu', sans-serif;
 }
 
-.card{
-    margin: 10px;
-    background-color: #ebebeb;
-    border: 2px solid black;
-}
-
-.card-img-top{
-    border-bottom: 2px solid black;
-}
 
 .navbar-brand{
     font-size: 30px;
@@ -37,10 +30,36 @@ nav{
     width: 70px;
 }
 
+/* Pet Search Page Styling */
+
+.card{
+    margin: 10px;
+    background-color: #ebebeb;
+    border: 2px solid black;
+}
+
+.card-img-top{
+    border-bottom: 2px solid black;
+}
+
 .pet-search-title{
     font-family: 'Fredoka One', cursive;
     text-align: center;
     margin: 20px;
     padding: 20px;
     font-size: large;
+}
+
+/* Login Page */
+
+.basic-form{
+    background-color: white;
+    padding: 30px;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.form-footer-links{
+    margin-top: 20px;
 }
