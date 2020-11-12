@@ -1,5 +1,7 @@
 /*
 
+font-family: 'Fredoka One', cursive;
+font-family: 'Ubuntu', sans-serif;
 
 */
 
@@ -14,6 +16,12 @@ nav{
 
 .card{
     margin: 10px;
+    background-color: #ebebeb;
+    border: 2px solid black;
+}
+
+.card-img-top{
+    border-bottom: 2px solid black;
 }
 
 .navbar-brand{
@@ -27,4 +35,12 @@ nav{
 .arrow{
     margin-top: -250px;
     width: 70px;
+}
+
+.pet-search-title{
+    font-family: 'Fredoka One', cursive;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    font-size: large;
 }
