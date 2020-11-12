@@ -1,6 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
     let User = sequelize.define("User", {
-        username: {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -13,6 +17,10 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 notEmpty: true
             }
+        },
+        agreeToTerms: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     });
 
