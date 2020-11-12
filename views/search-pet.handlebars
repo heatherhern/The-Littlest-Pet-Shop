@@ -1,4 +1,4 @@
-<div>
+<div class="pet-search-title">
     <h2>Find your companion</h2>
 </div>
 
@@ -15,10 +15,14 @@
                     <li>Gender: {{gender}}</li>
                 </ul>
                 <a href={{url}} class="btn btn-primary" target="_blank">View Pet</a>
+
                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{name}}"
                     aria-expanded="false" aria-controls={{name}}>
                     View Contact Info
                 </button>
+
+                <button class="btn btn-primary" type="button" id="savepetBtn">Save Pet</button>
+
                 <div class="collapse" id="{{name}}">
                     <div class="card card-body">
                         <ul>
