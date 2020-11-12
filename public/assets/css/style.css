@@ -1,0 +1,46 @@
+/*
+
+font-family: 'Fredoka One', cursive;
+font-family: 'Ubuntu', sans-serif;
+
+*/
+
+.background{
+    background: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80") no-repeat center fixed;
+    background-size: cover;
+}
+
+nav{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.card{
+    margin: 10px;
+    background-color: #ebebeb;
+    border: 2px solid black;
+}
+
+.card-img-top{
+    border-bottom: 2px solid black;
+}
+
+.navbar-brand{
+    font-size: 30px;
+}
+
+.logo{
+    margin-top: 30px;
+}
+
+.arrow{
+    margin-top: -250px;
+    width: 70px;
+}
+
+.pet-search-title{
+    font-family: 'Fredoka One', cursive;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    font-size: large;
+}

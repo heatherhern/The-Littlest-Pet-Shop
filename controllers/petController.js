@@ -8,13 +8,22 @@ let router = express.Router();
 
 router.get("/", function(req, res){
     res.render("index");
-})
+});
+
+router.get("/login", function(req, res){
+    res.render("login");
+});
+
+router.get("/register", function(req, res){
+    res.render("register");
+});
+
+router.get("/forgot-password", function(req, res){
+    res.render("forgot-password");
+});
 
 
-
-
-
-router.get("/pets", function (req, res) {
+router.get("/search-pet", function (req, res) {
     client.animal.search().then(function (response) {
         let petArr = [];
 
@@ -25,7 +34,6 @@ router.get("/pets", function (req, res) {
                 species: element.species,
                 age: element.age,
                 gender: element.gender,
-                photo_url: element.photos,
                 organization_id: element.organization_id,
                 email: element.contact.email,
                 phone: element.contact.phone,
@@ -37,15 +45,23 @@ router.get("/pets", function (req, res) {
                 country: element.contact.address.country
             };
 
+            if(element.photos[0]){
+                petObj.photo_url = element.photos[0].medium
+            } else {
+                petObj.photo_url = "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png";
+            }
+
             petArr.push(petObj);
         });
         console.log(petArr);
-        res.render("petDisplay", {pets: petArr});
+        res.render("search-pet", {pet: petArr});
     });
     
 });
 
-
+router.get("/saved-pets", function(req, res){
+    res.render("saved-pets");
+});
 
 
 
