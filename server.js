@@ -3,8 +3,17 @@ const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 const db = require("./models");
+const passport = require("passport");
+
+const session = require("express-session"),
+    bodyParser = require("body-parser");
 
 app.use(express.static("public"));
+app.use(session({ secret: "cats" }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
