@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS pets_db;
-CREATE DATABASE pets_db;
-USE pets_db;
+DROP TABLE IF EXISTS pet_db;
+CREATE DATABASE pet_db;
+USE pet_db;
 
 CREATE TABLE pets
 (
