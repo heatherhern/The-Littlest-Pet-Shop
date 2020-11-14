@@ -53,4 +53,3 @@ $('#resetPasswordForm').on('submit', (event) => {
 
     }
 });
-
