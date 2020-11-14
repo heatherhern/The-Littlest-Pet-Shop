@@ -9,7 +9,11 @@ $('#registerForm').on('submit', (event) => {
 
     if (registerObj.password === $('#confirmPassword').val()) {
         $.post('/api/user/register', registerObj).then(function (response) {
+            console.log(typeof response);
             console.log(response);
+            let condition = response;
+
+            console.log(condition);
             window.location.replace('/login')
         });
     } else {
@@ -25,7 +29,7 @@ $('#loginForm').on('submit', (event) => {
     };
 
     $.post('/api/user/login', loginObj).then(function (response) {
-        console.log(response);
+        console.log(typeof response);
         window.location.replace("/search-pet")
     });
 });
@@ -44,7 +48,7 @@ $('#resetPasswordForm').on('submit', (event) => {
     let id = $('#save-btn').data("id");
     if($('#password').val() === $('#confirmPassword').val()){
         $.post('/api/user/'+id+'/reset-password', {password: $('#password').val()}).then(function(response){
-            console.log(response);
+            console.log(typeof response);
             window.location.replace('/login')
         });
     }else{
