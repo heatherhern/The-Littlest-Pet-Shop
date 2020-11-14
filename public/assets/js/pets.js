@@ -9,9 +9,8 @@ $('#registerForm').on('submit', (event) => {
 
     if (registerObj.password === $('#confirmPassword').val()) {
         $.post('/api/user/register', registerObj).then(function (response) {
-            if (response === 200) {
-                //alert('good');
-            }
+            console.log(response);
+            window.location.replace('/login')
         });
     } else {
         //alert user of mismatching passwords, not meeting required security
@@ -26,9 +25,8 @@ $('#loginForm').on('submit', (event) => {
     };
 
     $.post('/api/user/login', loginObj).then(function (response) {
-        if (response === 200) {
-            //alert('good');
-        }
+        console.log(response);
+        window.location.replace("/search-pet")
     });
 });
 
@@ -50,6 +48,20 @@ $('#resetPasswordForm').on('submit', (event) => {
             window.location.replace('/login')
         });
     }else{
-
+        alert("Your Passwords Must Match");
     }
 });
+
+$('.savepetBtn').on('click', (event)=>{
+    event.preventDefault();
+    if($('.savepetBtn').data('id')){
+        console.log($('.savepetBtn').data('id'));
+
+
+
+
+    }else{
+        alert("you gotta be logged in willis")
+        window.location.replace('/login');
+    }
+})
