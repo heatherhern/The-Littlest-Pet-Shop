@@ -45,6 +45,10 @@ router.get("/search-pet", function (req, res) {
                 country: element.contact.address.country
             };
 
+            if(req.user){
+                petObj.userId = req.user.id
+            }
+
             if(element.photos[0]){
                 petObj.photo_url = element.photos[0].medium
             } else {
@@ -53,14 +57,15 @@ router.get("/search-pet", function (req, res) {
 
             petArr.push(petObj);
         });
-        console.log(petArr);
+
         res.render("search-pet", {pet: petArr});
+        
     });
     
 });
 
 router.get("/saved-pets", function(req, res){
-    res.render("saved-pets");
+    res.render("saved-pets", {id: req.user.id});
 });
 
 

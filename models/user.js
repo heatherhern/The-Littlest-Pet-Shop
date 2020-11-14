@@ -17,10 +17,6 @@ module.exports = function (sequelize, DataTypes) {
             validate: {
                 notEmpty: true
             }
-        },
-        agreeToTerms: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
         }
     });
 

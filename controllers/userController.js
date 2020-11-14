@@ -1,46 +1,11 @@
 const db = require("../models");
 let express = require("express");
 let router = express.Router();
-
 const bcrypt = require('bcrypt');
-
-
-
-
-router.post('/api/user/register', function (req, res) {
-    const registerObj = req.body;
-
-    bcrypt.hash(registerObj.password, 10).then(function (hashedPass) {
-        registerObj.password = hashedPass;
-
-        if (registerObj.agreeToTerms === 'on') {
-            registerObj.agreeToTerms = true;
-        };
-
-        db.User.create(registerObj).then(function (result) {
-            res.status(200);
-            res.json(result);
-        });
-
-        
-    });
-});
-
-router.post('/api/user/login', function (req, res) {
-    const loginObj = req.body;
-
-    db.User.findOne({ where: { email: loginObj.email } }).then(function (data) {
-        let sqlUser = data.dataValues;
-
-        bcrypt.compare(loginObj.password, sqlUser.password).then(function (result) {
-            res.status(200);
-        });
-    });
-
-});
 
 router.post('/api/user/forgot-password', function (req, res) {
     const providedEmail = req.body.email;
+    console.log(req.user);
 
     db.User.findOne({ where: { email: providedEmail } }).then(function (data) {
         let sqlUser = data.dataValues;

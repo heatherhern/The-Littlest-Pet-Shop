@@ -3,8 +3,20 @@ const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 const db = require("./models");
+const passport = require("passport");
+
+const session = require("express-session"),
+    bodyParser = require("body-parser");
 
 app.use(express.static("public"));
+app.use(session({ secret: "cats",resave: true, saveUninitialized: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
+
+require("./config/passport/passport.js")(passport, db.User);
+require("./controllers/authController.js")(app,passport);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
