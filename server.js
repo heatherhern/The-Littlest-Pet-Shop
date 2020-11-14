@@ -9,11 +9,14 @@ const session = require("express-session"),
     bodyParser = require("body-parser");
 
 app.use(express.static("public"));
-app.use(session({ secret: "cats" }));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({ secret: "cats",resave: true, saveUninitialized: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
+require("./config/passport/passport.js")(passport, db.User);
+require("./controllers/authController.js")(app,passport);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
