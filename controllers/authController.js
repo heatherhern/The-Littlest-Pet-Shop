@@ -1,6 +1,7 @@
 var passport = require("../config/passport/passport.js");
 var path = require("path");
 var db = require("../models");
+const flash = require('connect-flash');
 module.exports = function (app, passport) {
 
     app.get("/logout", function (req, res) {
@@ -12,14 +13,14 @@ module.exports = function (app, passport) {
     });
 
 
-    app.post('/api/user/register', passport.authenticate('local-signup'), function (req, res) {
+    app.post('/api/user/register', passport.authenticate('local-signup', {failureFlash: true}), function (req, res) {
         console.log("signup hit")
         console.log(req.user.id);
-        res.sendStatus(200);
+        res.send("okay");
     });
 
 
-    app.post("/api/user/login", passport.authenticate('local-signin'), function (req, res) {
+    app.post("/api/user/login", passport.authenticate('local-signin', {failureFlash: true}), function (req, res) {
         console.log("login hit");
         console.log(req.user.id);
         res.sendStatus(200);
