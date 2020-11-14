@@ -4,10 +4,14 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const db = require("./models");
 const passport = require("passport");
-
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
 const session = require("express-session"),
     bodyParser = require("body-parser");
 
+
+app.use(flash());
+app.use(cookieParser());
 app.use(express.static("public"));
 app.use(session({ secret: "cats",resave: true, saveUninitialized: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
