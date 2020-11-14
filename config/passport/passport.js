@@ -1,5 +1,6 @@
 let bCrypt = require('bcrypt');
 let passport = require("passport");
+const flash = require('connect-flash');
 
 
 // function to be called while there is a new sign/signup 
@@ -29,6 +30,7 @@ module.exports = function (passport, auth) {
             }).then(function (user) {
                 //console.log(user);
                 if (user) {
+                    console.log("here dummy")
                     return done(null, false, {
                         message: 'That email is already taken'
                     });
