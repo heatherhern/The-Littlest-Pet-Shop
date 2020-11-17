@@ -63,3 +63,11 @@ nav{
 .form-footer-links{
     margin-top: 20px;
 }
+
+.center-div{
+    margin: 0 auto;
+}
+
+hr{
+    border: 2px solid black;
+}
