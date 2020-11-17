@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         {{#each pet}}
-        <div class="card" style="width: 25rem;">
+        <div id="{{uuid}}" class="card" style="width: 25rem;">
             <img src={{photo_url}} class="card-img-top" alt="animal image" width="25rem">
             <div class="card-body">
                 <h5 class="card-title">{{name}}</h5>
@@ -21,7 +21,7 @@
                     View Contact Info
                 </button>
 
-                <button class="btn btn-primary savepetBtn" type="button" data-id="{{userId}}">Save Pet</button>
+                <button class="btn btn-primary savepetBtn" type="button" data-id="{{userId}}" data-uuid="{{uuid}}">Save Pet</button>
 
                 <div class="collapse" id="{{name}}">
                     <div class="card card-body">
