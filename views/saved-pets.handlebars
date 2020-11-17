@@ -1,1 +1,44 @@
-<h2>Saved Pets Page ID: {{user.id}}</h2>
+<div class="pet-search-title">
+    <h2>{{user.name}}'s saved pet page</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        {{#each pet}}
+        <div class="card saved-card" style="width: 25rem;">
+            <img src={{photo_url}} class="card-img-top" alt="animal image" width="25rem">
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <ul class="card-text">
+                    <li>{{species}}</li>
+                    <li>{{age}}</li>
+                    <li>{{gender}}</li>
+                </ul>
+                <a href={{url}} class="btn btn-primary" target="_blank">View Pet</a>
+
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{name}}"
+                    aria-expanded="false" aria-controls={{name}}>
+                    View Contact Info
+                </button>
+
+                <button class="btn btn-primary deletepetBtn" type="button" data-id="{{id}}">Delete Pet</button>
+
+                <div class="collapse" id="{{name}}">
+                    <div class="card card-body">
+                        <ul>
+                            <li><a href="mailto:{{email}}">{{email}}</a></li>
+                            <li><a href="tel:{{phone}}">{{phone}}</a></li>
+                            <li>{{address1}}</li>
+                            <li>{{address2}}</li>
+                            <li>{{city}}</li>
+                            <li>{{state}}</li>
+                            <li>{{zipcode}}</li>
+                            <li>{{country}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
