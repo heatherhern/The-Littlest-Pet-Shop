@@ -1,3 +1,5 @@
+const db = require(".");
+
 module.exports = function (sequelize, DataTypes) {
     let SavedPet = sequelize.define("SavedPet", {
         name: DataTypes.STRING,
@@ -6,7 +8,14 @@ module.exports = function (sequelize, DataTypes) {
         age: DataTypes.STRING,
         gender: DataTypes.STRING,
         photo_url: DataTypes.STRING,
-        organization_id: DataTypes.STRING,
+        email: DataTypes.STRING,
+        phone: DataTypes.STRING,
+        address1: DataTypes.STRING,
+        address2: DataTypes.STRING,
+        city: DataTypes.STRING,
+        state: DataTypes.STRING,
+        zip: DataTypes.STRING,
+        country: DataTypes.STRING
     });
 
     SavedPet.associate = function(models) {
