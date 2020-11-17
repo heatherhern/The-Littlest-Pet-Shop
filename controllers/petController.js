@@ -1,4 +1,5 @@
 const db = require("../models");
+const short = require('short-uuid');
 
 var petfinder = require("@petfinder/petfinder-js");
 var client = new petfinder.Client({ apiKey: process.env.API_KEY, secret: process.env.SECRET_KEY });
@@ -50,7 +51,8 @@ router.get("/search-pet", function (req, res) {
                 city: element.contact.address.city,
                 state: element.contact.address.state,
                 zipcode: parseInt(element.contact.address.postcode),
-                country: element.contact.address.country
+                country: element.contact.address.country,
+                uuid: short.generate()
             };
 
             if (res.locals.user) {
@@ -74,11 +76,27 @@ router.get("/search-pet", function (req, res) {
 
 router.get("/saved-pets", function (req, res) {
     if(req.session.email){
+        // let userId = res.locals.user.id;
+
+        // db.SavedPets.findAll({where: {UserId : userId}}).then(function(response){
+        //     console.log(response);
+        //     res.render("saved-pets");
+        // })
+
         res.render("saved-pets");
     } else{
         res.render('login');
     }
     
+});
+
+router.post("/api/save-pet/:id", function(req, res){
+    let userId = req.params.id;
+    console.log(req.body);
+
+    db.SavedPets.create(req.body).then(function(response){
+        console.log(response);
+    });
 });
 
 

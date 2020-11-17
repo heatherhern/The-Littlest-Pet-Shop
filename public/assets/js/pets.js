@@ -69,7 +69,9 @@ $('#resetPasswordForm').on('submit', (event) => {
 $('.savepetBtn').on('click', (event) => {
     event.preventDefault();
     if ($('.savepetBtn').data('id')) {
-        console.log($('.savepetBtn').data('id'));
+        let uuid = '#' + $('.savepetBtn').data('uuid');
+        let card = $(uuid).children();
+        console.log(card);
 
 
 
