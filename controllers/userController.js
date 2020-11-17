@@ -2,8 +2,9 @@ const db = require("../models");
 let express = require("express");
 let router = express.Router();
 const bcrypt = require('bcrypt');
+const auth = require('../config/auth/auth.js');
 
-router.post('/api/user/forgot-password', function (req, res) {
+router.post('/user/forgot-password', function (req, res) {
     const providedEmail = req.body.email;
     console.log(req.user);
 
@@ -20,7 +21,7 @@ router.get('/user/:id/reset-password', function (req, res) {
     res.render("reset-password", { id: req.params.id });
 });
 
-router.post('/api/user/:id/reset-password', function (req, res) {
+router.post('/user/:id/reset-password', function (req, res) {
     let selectedId = req.params.id;
     bcrypt.hash(req.body.password, 10).then(function (hashedPass) {
         let newPassword = hashedPass;
@@ -31,6 +32,41 @@ router.post('/api/user/:id/reset-password', function (req, res) {
             }
         })
     });
+});
+
+router.post('/user/login', function (req, res) {
+    auth.login(req.body).then(function (result) {
+        req.session.email = result.email;
+        res.end(JSON.stringify({
+            code: 200
+        }));
+    })
+        .catch(function (error) {
+            res.end(JSON.stringify({
+                code: 500,
+                error: error
+            }));
+        });
+});
+
+router.post('/user/register', function (req, res) {
+    auth.register(req.body).then(function (result) {
+        req.session.email = result.email;
+        res.end(JSON.stringify({
+            code: 200
+        }));
+    })
+        .catch(function (error) {
+            res.end(JSON.stringify({
+                code: 500,
+                error: error
+            }));
+        });
+});
+
+router.get('/logout', function(req,res){
+    req.session.destroy();
+    res.redirect('/');
 });
 
 
