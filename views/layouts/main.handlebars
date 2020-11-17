@@ -11,8 +11,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-	<link rel="preconnect" href="https://fonts.gstatic.com"/>
-	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Ubuntu&display=swap" rel="stylesheet"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Ubuntu&display=swap" rel="stylesheet" />
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
 
@@ -30,7 +30,13 @@
 			<div class="navbar-nav">
 				<a class="nav-item nav-link" href="/search-pet">Find your pet<span class="sr-only">(current)</span></a>
 				<a class="nav-item nav-link" href="/saved-pets">View saved pets</a>
+			</div>
+			<div class="nav navbar-nav ml-auto">
+				{{#if user.id}}
+				<p class="my-2 my-sm-0">{{user.name}} <a href="/logout">logout</a></p>
+				{{else}}
 				<a class="nav-item nav-link" href="/login">Login/Sign-up</a>
+				{{/if}}
 			</div>
 		</div>
 	</nav>

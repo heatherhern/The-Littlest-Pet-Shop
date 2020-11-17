@@ -6,19 +6,27 @@ var client = new petfinder.Client({ apiKey: process.env.API_KEY, secret: process
 let express = require("express");
 let router = express.Router();
 
-router.get("/", function(req, res){
+router.get("/", function (req, res) {
     res.render("index");
 });
 
-router.get("/login", function(req, res){
+router.get("/login", function (req, res) {
     res.render("login");
 });
 
-router.get("/register", function(req, res){
+router.get("/login/:error", function(req, res){
+    res.render('login', {error: req.params.error});
+})
+
+router.get("/register", function (req, res) {
     res.render("register");
 });
 
-router.get("/forgot-password", function(req, res){
+router.get("/register/:error", function (req, res) {
+    res.render("register", {error: req.params.error});
+});
+
+router.get("/forgot-password", function (req, res) {
     res.render("forgot-password");
 });
 
@@ -45,11 +53,11 @@ router.get("/search-pet", function (req, res) {
                 country: element.contact.address.country
             };
 
-            if(req.user){
-                petObj.userId = req.user.id
+            if (res.locals.user) {
+                petObj.userId = res.locals.user.id
             }
 
-            if(element.photos[0]){
+            if (element.photos[0]) {
                 petObj.photo_url = element.photos[0].medium
             } else {
                 petObj.photo_url = "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png";
@@ -58,14 +66,19 @@ router.get("/search-pet", function (req, res) {
             petArr.push(petObj);
         });
 
-        res.render("search-pet", {pet: petArr});
-        
+        res.render("search-pet", { pet: petArr });
+
     });
-    
+
 });
 
-router.get("/saved-pets", function(req, res){
-    res.render("saved-pets", {id: req.user.id});
+router.get("/saved-pets", function (req, res) {
+    if(req.session.email){
+        res.render("saved-pets");
+    } else{
+        res.render('login');
+    }
+    
 });
 
 
