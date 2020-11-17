@@ -76,14 +76,16 @@ router.get("/search-pet", function (req, res) {
 
 router.get("/saved-pets", function (req, res) {
     if(req.session.email){
-        // let userId = res.locals.user.id;
+        let userId = res.locals.user.id;
 
-        // db.SavedPets.findAll({where: {UserId : userId}}).then(function(response){
-        //     console.log(response);
-        //     res.render("saved-pets");
-        // })
-
-        res.render("saved-pets");
+        db.SavedPet.findAll({where: {UserId : userId}}).then(function(response){
+            let savedPetArr = [];
+            response.forEach(element=>{
+                savedPetArr.push(element.dataValues);
+            });
+            console.log(savedPetArr);
+            res.render("saved-pets", {pet: savedPetArr});
+        })
     } else{
         res.render('login');
     }
@@ -91,13 +93,24 @@ router.get("/saved-pets", function (req, res) {
 });
 
 router.post("/api/save-pet/:id", function(req, res){
-    let userId = req.params.id;
-    console.log(req.body);
+    req.body.UserId = req.params.id
 
-    db.SavedPets.create(req.body).then(function(response){
-        console.log(response);
+    db.SavedPet.create(req.body).then(function(response){
+        res.end(JSON.stringify({
+            code: 200
+        }));
+    })
+    .catch(function(err){
+        console.log(err);
     });
 });
+
+router.delete("/api/delete-pet/:id", function(req, res){
+    db.SavedPet.destroy({where: {id: req.params.id}}).then(function(response){
+        console.log(response);
+        res.send(200);
+    });
+})
 
 
 
