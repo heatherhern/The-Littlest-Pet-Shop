@@ -22,7 +22,7 @@
 </head>
 
 <body class="background">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<a class="navbar-brand" href="/">The Littlest Pet Shop</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
 			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
 			</div>
 			<div class="nav navbar-nav ml-auto">
 				{{#if user.id}}
-				<p class="my-2 my-sm-0">{{user.name}} <a href="/logout">logout</a></p>
+				<p class="my-2 my-sm-0 username">{{user.name}} <a href="/logout">logout</a></p>
 				{{else}}
 				<a class="nav-item nav-link" href="/login">Login/Sign-up</a>
 				{{/if}}
