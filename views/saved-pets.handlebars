@@ -1,9 +1,11 @@
 <div class="pet-search-title">
     <h2>{{user.name}}'s saved pet page</h2>
+    <hr>
 </div>
 
-<div class="container">
+<div class="container center-div">
     <div class="row">
+        {{#if pet}}
         {{#each pet}}
         <div class="card saved-card" style="width: 25rem;">
             <img src={{photo_url}} class="card-img-top" alt="animal image" width="25rem">
@@ -40,5 +42,16 @@
             </div>
         </div>
         {{/each}}
+
+        {{else}}
+
+        <div class="jumbotron text-center center-div">
+            <h1 class="display-4">No pets currently saved</h1>
+            <p class="lead"><a href="/search-pet">Search</a> for a pet and save it to show up here!
+            </p>
+        </div>
+
+        {{/if}}
+
     </div>
 </div>
