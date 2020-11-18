@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container animate__animated animate__fadeInDown">
     <form class="basic-form" id="registerForm">
         <h3>Register</h3>
         <hr>
         {{#if error}}
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show animate__animated animate__flash animate__delay-1s animate__faster" role="alert">
             {{error}}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="confirmPassword">Confirm Password:</label>
-            <input type="password" class="form-control" id="confirmPassword" required>
+            <input type="password" class="form-control" id="confirmPassword" oninput="check(this)" required>
         </div>
         <button type="submit" class="btn btn-primary" id="signupBtn">Sign Up</button>
         <div class="form-footer-links">

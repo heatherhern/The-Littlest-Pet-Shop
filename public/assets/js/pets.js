@@ -1,14 +1,23 @@
+function check(input) {
+    if (input.value != $('#password').val()) {
+        input.setCustomValidity('Password Must be Matching.');
+    } else {
+        // input is valid -- reset the error message
+        input.setCustomValidity('');
+    }
+};
+
 $('#registerForm').on('submit', (event) => {
     event.preventDefault();
     let registerObj = {
-        name: $('#name').val(),
-        email: $('#email').val(),
-        password: $('#password').val()
+        name: $.trim($('#name').val()),
+        email: $.trim($('#email').val()),
+        password: $.trim($('#password').val())
     };
 
     if (registerObj.password === $('#confirmPassword').val()) {
         $.post('/user/register', registerObj).then(function (response) {
-            response = JSON.parse(response);
+            response = $.parseJSON(response);
             if (response.code === 200) {
                 console.log("all good, redirecting")
                 //redirect
@@ -27,12 +36,12 @@ $('#registerForm').on('submit', (event) => {
 $('#loginForm').on('submit', (event) => {
     event.preventDefault();
     let loginObj = {
-        email: $('#email').val(),
-        password: $('#password').val(),
+        email: $.trim($('#email').val()),
+        password: $.trim($('#password').val()),
     };
 
     $.post('/user/login', loginObj).then(function (response) {
-        response = JSON.parse(response);
+        response = $.parseJSON(response);
         if (response.code === 200) {
             console.log("Login Successfull, Redirect");
             //redirect
@@ -49,8 +58,11 @@ $('#forgotPasswordForm').on('submit', (event) => {
     event.preventDefault();
 
     $.post('/user/forgot-password', { email: $('#email').val() }).then(function (response) {
-        console.log(response.id);
-        window.location.replace('/user/' + response.id + '/reset-password')
+        if (response === "No User Found") {
+            window.location.replace('/fogot-password/Email not found')
+        } else {
+            window.location.replace('/user/' + response.id + '/reset-password')
+        }
     });
 });
 
@@ -89,19 +101,16 @@ $('.search-card').click(function (event) {
                 photo_url: $(uuid).children()[0].currentSrc,
                 url: $(uuid).children()[1].children[2].href,
             };
-            console.log(petObj);
             $.post('/api/save-pet/' + userId, petObj).then(function (response) {
-                response = JSON.parse(response);
+                response = $.parseJSON(response);
                 if (response.code === 200) {
                     console.log("Save Successfull");
                 }
-            })
-
+            });
         } else {
             window.location.replace('/login');
         }
     }
-
 });
 
 $('.saved-card').click(function (event) {
@@ -109,9 +118,9 @@ $('.saved-card').click(function (event) {
     if (event.target.className.includes("deletepetBtn")) {
         let petId = $(this).find('.deletepetBtn')[0].dataset.id;
         $.ajax({
-            url: '/api/delete-pet/'+petId,
+            url: '/api/delete-pet/' + petId,
             type: 'DELETE'
-        }).then(function(response){
+        }).then(function (response) {
             console.log(response);
             location.reload();
         });

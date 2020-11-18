@@ -8,12 +8,36 @@ font-family: 'Ubuntu', sans-serif;
 
 /* Main Page Styling */
 .background{
-    background: url("https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80") no-repeat center fixed;
+    background: url("https://i.pinimg.com/564x/8f/f7/8f/8ff78fc9e9735c521b733ecafd4e194e.jpg"), no-repeat center fixed linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8));;
     background-size: cover;
+    background-blend-mode: overlay;
 }
 
 nav{
     font-family: 'Ubuntu', sans-serif;
+}
+
+.card-main{
+    background-color: rgba(255,255,255,0.7);
+    padding: 30px;
+    margin: auto;
+    width: 18rem;
+    height: 18rem;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    border: 2px solid black;
+}
+
+
+.card-wide{
+    background-color: rgba(255,255,255,0.7);
+    padding: 30px;
+    margin: auto;
+    width: 45rem;
+    height: 13rem;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    border: 2px solid black;
 }
 
 
@@ -28,6 +52,11 @@ nav{
 .arrow{
     margin-top: -250px;
     width: 70px;
+}
+
+.username{
+    color: white;
+    font-size: 20px;
 }
 
 /* Pet Search Page Styling */
@@ -48,6 +77,7 @@ nav{
     margin: 20px;
     padding: 20px;
     font-size: large;
+    color: white;
 }
 
 /* Login/RegisterPage */
@@ -195,4 +225,12 @@ nav{
 @keyframes shakeHead {
     0%{transform: rotate(5deg)}
     100%{transform: rotate(0deg)}
+}
+
+.center-div{
+    margin: 0 auto;
+}
+
+hr{
+    border: 1px solid #888888;
 }

@@ -6,15 +6,20 @@ const auth = require('../config/auth/auth.js');
 
 router.post('/user/forgot-password', function (req, res) {
     const providedEmail = req.body.email;
-    console.log(req.user);
 
     db.User.findOne({ where: { email: providedEmail } }).then(function (data) {
         let sqlUser = data.dataValues;
 
         res.send({ id: sqlUser.id });
         res.status(200);
-
+    })
+    .catch(function(error){
+        res.send("No User Found")
     });
+});
+
+router.get('/fogot-password/:error', function(req,res){
+    res.render('forgot-password', {error: req.params.error})
 });
 
 router.get('/user/:id/reset-password', function (req, res) {
