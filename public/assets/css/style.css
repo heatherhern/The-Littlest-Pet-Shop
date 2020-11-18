@@ -50,6 +50,11 @@ nav{
     width: 70px;
 }
 
+.username{
+    color: white;
+    font-size: 20px;
+}
+
 /* Pet Search Page Styling */
 
 .card{
@@ -68,6 +73,7 @@ nav{
     margin: 20px;
     padding: 20px;
     font-size: large;
+    color: white;
 }
 
 /* Login/RegisterPage */
