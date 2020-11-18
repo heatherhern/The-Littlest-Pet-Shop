@@ -10,14 +10,14 @@ function check(input) {
 $('#registerForm').on('submit', (event) => {
     event.preventDefault();
     let registerObj = {
-        name: $('#name').val(),
-        email: $('#email').val(),
-        password: $('#password').val()
+        name: $.trim($('#name').val()),
+        email: $.trim($('#email').val()),
+        password: $.trim($('#password').val())
     };
 
     if (registerObj.password === $('#confirmPassword').val()) {
         $.post('/user/register', registerObj).then(function (response) {
-            response = JSON.parse(response);
+            response = $.parseJSON(response);
             if (response.code === 200) {
                 console.log("all good, redirecting")
                 //redirect
@@ -36,12 +36,12 @@ $('#registerForm').on('submit', (event) => {
 $('#loginForm').on('submit', (event) => {
     event.preventDefault();
     let loginObj = {
-        email: $('#email').val(),
-        password: $('#password').val(),
+        email: $.trim($('#email').val()),
+        password: $.trim($('#password').val()),
     };
 
     $.post('/user/login', loginObj).then(function (response) {
-        response = JSON.parse(response);
+        response = $.parseJSON(response);
         if (response.code === 200) {
             console.log("Login Successfull, Redirect");
             //redirect
@@ -101,19 +101,16 @@ $('.search-card').click(function (event) {
                 photo_url: $(uuid).children()[0].currentSrc,
                 url: $(uuid).children()[1].children[2].href,
             };
-            console.log(petObj);
             $.post('/api/save-pet/' + userId, petObj).then(function (response) {
-                response = JSON.parse(response);
+                response = $.parseJSON(response);
                 if (response.code === 200) {
                     console.log("Save Successfull");
                 }
-            })
-
+            });
         } else {
             window.location.replace('/login');
         }
     }
-
 });
 
 $('.saved-card').click(function (event) {
