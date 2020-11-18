@@ -1,5 +1,3 @@
-@ -1 +1,24 @@
-# The-Littlest-Pet-Shop
 # The-Littlest-Pet-Shop
 
 Deployed Link: https://the-littlest-petshop.herokuapp.com/
@@ -8,9 +6,9 @@ Deployed Link: https://the-littlest-petshop.herokuapp.com/
 The Littlest Pet Shop is a place to search for adoptable pets through the Petfinder API and save them for future reference.
 
 ## Contributors
-![Allister Rampenthal]("https://github.com/DaySloth")
-![Todd Jones]("https://github.com/crowntj07")
-![Heather Hern]("https://github.com/heatherhern")
+[Allister Rampenthal]("https://github.com/DaySloth") |
+ [Todd Jones]("https://github.com/crowntj07") |
+ [Heather Hern]("https://github.com/heatherhern")
 
 ## Features Included:
 - Register + login functionality
