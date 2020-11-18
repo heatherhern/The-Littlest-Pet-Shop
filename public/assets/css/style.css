@@ -63,3 +63,136 @@ nav{
 .form-footer-links{
     margin-top: 20px;
 }
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.head {
+    animation: shakeHead 1s alternate infinite;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(150deg, tan, tan, white);
+    border-radius: 40% 40% 95% 95%;
+    width: 145px;
+    height: 180px;
+    border: 2px solid tan;
+    position: relative;
+    z-index: 99;
+    margin-right: -50px;
+    transform: rotate(5deg);
+}
+
+.left {
+    margin-right: 50px;
+    transform: rotate(250deg);
+}
+
+.right {
+    margin-left: 50px;
+    transform: rotate(110deg);
+}
+
+.ears {
+    display: flex;
+    margin-top: -46px;
+    width: 100%;
+}
+
+.ear {
+    background-color: peru;
+    height: 95px;
+    width: 400px;
+    margin-top: 10px;
+    border-radius: 25%;
+    border: 1px solid tan;
+}
+
+.nose {
+    background: black;
+    width: 20px;
+    height: 15px;
+    border-radius: 100%;
+    margin: auto;
+    border: 1px solid tan;
+}
+
+.eyes {
+    display: flex;
+    margin-bottom: 80px;
+    justify-content: space-around; 
+}
+
+.iris {
+    display: flex;
+    background: linear-gradient(10deg, tan, peru);
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    margin: auto;
+    border: 1px solid peru;
+}
+
+.pupil {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.body {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(150deg, tan, tan);
+    height: 125px;
+    width: 200px;
+    border-radius: 40%;
+    position: relative;
+    z-index: 98;
+    border: 2px solid tan;
+}
+
+.leg {
+    background: linear-gradient(150deg, tan, tan, white);
+    height: 100px;
+    width: 20px;
+    border: 1px solid tan;
+    margin-top: 100px;
+    position: relative;
+    z-index: 97;
+    border-radius: 0 0 20% 10%;
+}
+
+.tail {
+    background: linear-gradient(150deg, tan, tan, white);
+    height: 20px;
+    width: 100px;
+    transform: rotate(160deg);
+    margin-top: -40px;
+    margin-left: -20px;
+    border-radius: 45% 5% 45% 45%;
+    position: relative;
+    z-index: 97;
+    border: 2px solid tan;
+    animation: WagTail 300ms alternate infinite;
+}
+
+@keyframes WagTail {
+    0%{
+        transform: rotate(165deg)                          translateY(0);
+    }
+    100%{
+        transform: rotate(155deg)
+                   translateY(10px);
+    }
+}
+
+@keyframes shakeHead {
+    0%{transform: rotate(5deg)}
+    100%{transform: rotate(0deg)}
+}
