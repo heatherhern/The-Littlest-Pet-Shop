@@ -24,6 +24,8 @@ nav{
     width: 18rem;
     height: 18rem;
     margin-bottom: 30px;
+    border-radius: 20px;
+    border: 2px solid black;
 }
 
 
@@ -34,6 +36,8 @@ nav{
     width: 45rem;
     height: 13rem;
     margin-bottom: 30px;
+    border-radius: 20px;
+    border: 2px solid black;
 }
 
 
