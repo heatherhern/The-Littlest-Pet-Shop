@@ -5,7 +5,7 @@ Deployed Link: https://the-littlest-petshop.herokuapp.com/
 ## A Pet Search App to Find Your Furever Friend
 The Littlest Pet Shop is a place to search for adoptable pets through the Petfinder API and save them for future reference.
 
-![Image of webpage](./public/assets/img/app_screenshot.png)
+![Image of webpage](https://i.imgur.com/bA9U2PL.png)
 
 ## Contributors
 [Allister Rampenthal](https://github.com/DaySloth) |
