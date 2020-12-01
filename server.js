@@ -9,6 +9,14 @@ const session = require("express-session"),
 
 let exphbs = require("express-handlebars");
 
+
+const compression = require('compression')
+const express = require('express')
+
+const app = express()
+
+app.use(compression())
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
